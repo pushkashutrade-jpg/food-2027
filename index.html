@@ -504,15 +504,16 @@
         .bottom-nav {
             flex-shrink: 0;
             width: 100%;
-            height: calc(70px + env(safe-area-inset-bottom, 0px));
+            height: calc(56px + env(safe-area-inset-bottom, 0px));
             background-color: #1C1C1E;
             display: flex;
             justify-content: space-around;
-            align-items: center;
-            padding: 0 10px;
+            align-items: flex-start;
+            padding: 4px 10px 0 10px;
             padding-bottom: env(safe-area-inset-bottom, 0px);
             border-top: 1px solid #2C2C2E;
             z-index: 10;
+            position: relative;
         }
 
         .nav-item {
@@ -520,15 +521,16 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            width: 60px;
-            height: 48px;
+            width: 56px;
+            height: 42px;
             cursor: pointer;
-            gap: 2px;
+            gap: 1px;
+            padding-top: 2px;
         }
 
         .nav-item svg {
-            width: 24px;
-            height: 24px;
+            width: 22px;
+            height: 22px;
             fill: #8E8E93;
         }
 
@@ -537,9 +539,10 @@
         }
 
         .nav-item-label {
-            font-size: 10px;
+            font-size: 9px;
             color: #8E8E93;
             text-align: center;
+            line-height: 1;
         }
 
         .nav-item.active .nav-item-label {
@@ -547,21 +550,22 @@
         }
 
         .nav-fab {
-            width: 60px;
-            height: 60px;
+            width: 52px;
+            height: 52px;
             background-color: #2E7D32;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: -20px;
+            margin-top: -18px;
             box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
             cursor: pointer;
+            flex-shrink: 0;
         }
 
         .nav-fab svg {
-            width: 30px;
-            height: 30px;
+            width: 26px;
+            height: 26px;
             fill: #ffffff;
         }
 
@@ -1035,7 +1039,6 @@
 
     <main class="main-content">
 
-        <!-- ============ ГЛАВНАЯ ============ -->
         <div class="section active" id="sectionMain">
             <div class="card" style="position: relative;">
                 <div class="calendar-wrapper">
@@ -1203,7 +1206,6 @@
             </div>
         </div>
 
-        <!-- ============ ЦЕЛЬ ============ -->
         <div class="section" id="sectionGoal">
             <div class="card">
                 <div class="goal-form">
@@ -1230,7 +1232,6 @@
             </div>
         </div>
 
-        <!-- ============ ПРИЁМЫ ПИЩИ ============ -->
         <div class="section" id="sectionMeals">
             <div id="mealSection"></div>
         </div>
