@@ -1587,19 +1587,19 @@
             baseGoalCal.className = 'stat-value green';
         } else if (balance > 0) {
             balanceLabel.textContent = 'Профицит';
-            baseGoalCal.textContent = balance;
+            baseGoalCal.textContent = Math.round(balance * 10) / 10;
             baseGoalCal.className = 'stat-value red';
         } else {
             balanceLabel.textContent = 'Дефицит';
-            baseGoalCal.textContent = Math.abs(balance);
+            baseGoalCal.textContent = Math.round(Math.abs(balance) * 10) / 10;
             baseGoalCal.className = 'stat-value green';
         }
 
-        foodCalDisplay.textContent = totals.cal;
-        activityCalDisplay.textContent = `+${totalActivity}`;
+        foodCalDisplay.textContent = Math.round(totals.cal * 10) / 10;
+        activityCalDisplay.textContent = `+${Math.round(totalActivity)}`;
 
         const remaining = goalCal - totals.cal;
-        remainingCal.textContent = remaining > 0 ? remaining : 0;
+        remainingCal.textContent = remaining > 0 ? Math.round(remaining) : 0;
 
         if (totals.cal > 0) {
             circleProgress.style.display = 'block';
@@ -1615,9 +1615,9 @@
             circleProgress.style.display = 'none';
         }
 
-        macroProtein.textContent = `${totals.protein}г`;
-        macroFat.textContent = `${totals.fat}г`;
-        macroCarbs.textContent = `${totals.carbs}г`;
+        macroProtein.textContent = `${Math.round(totals.protein)}г`;
+        macroFat.textContent = `${Math.round(totals.fat)}г`;
+        macroCarbs.textContent = `${Math.round(totals.carbs)}г`;
 
         applyMacroProgress(macroProteinProgress, totals.protein, goalMacros.protein);
         applyMacroProgress(macroFatProgress, totals.fat, goalMacros.fat);
@@ -1895,10 +1895,10 @@
         dayData.meals[currentDishMeal].push({
             name: name,
             weight: w,
-            cal: c100 * w / 100,
-            protein: p100 * w / 100,
-            fat: f100 * w / 100,
-            carbs: cb100 * w / 100
+            cal: Math.round(c100 * w / 100 * 10) / 10,
+            protein: Math.round(p100 * w / 100 * 10) / 10,
+            fat: Math.round(f100 * w / 100 * 10) / 10,
+            carbs: Math.round(cb100 * w / 100 * 10) / 10
         });
 
         saveStorage(store);
